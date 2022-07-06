@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-interface Category {
+export interface Category {
   name: string;
   slug: string;
 }
@@ -11,7 +11,7 @@ const categories: Category[] = [
   { name: "Web Development", slug: "web-dev" },
 ];
 
-function Header() {
+const Header = () => {
   return (
     <div className="container mx-auto px-10 mb-8">
       <div className="border-b w-full inline-block border-blue-400 py-8">
@@ -35,6 +35,6 @@ function Header() {
       </div>
     </div>
   );
-}
+};
 
 export default Header;
