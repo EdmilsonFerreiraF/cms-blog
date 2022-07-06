@@ -1,4 +1,5 @@
 import request, { gql } from "graphql-request";
+import { Category } from "../components/Header";
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT as string;
 
@@ -44,14 +45,14 @@ export const getRecentPosts = async () => {
       posts(
         orderBy: createdAt_ASC
         last: 3
-      )
-    } {
-      title
-      featuredImage {
-        url
+       ) {
+        title
+        featuredImage {
+          url
+        }
+        createdAt
+        slug
       }
-      createdAt
-      slug
     }
   `;
 
@@ -60,24 +61,23 @@ export const getRecentPosts = async () => {
   return result.posts;
 };
 
-export const getSimilarPosts = async () => {
+export const getSimilarPosts = async (categories: Category[], slug: string) => {
   const query = gql`
     query GetPostDetails($slug: String!, $categories: [String!]) {
       posts(
         where: {
           slug_not: $slug
           AND: { categories_some: { slug_in: $categories } }
-          last: 3
         }
-      )
-    }
-    {
-      title
-      featuredImage {
-        url
+        last: 3
+      ) {
+        title
+        featuredImage {
+          url
+        }
+        createdAt
+        slug
       }
-      createdAt
-      slug
     }
   `;
 
