@@ -1,5 +1,7 @@
 import moment from "moment";
+import Image from "next/image";
 import React from "react";
+import { graphCMSImageLoader } from "../util";
 import Author from "./Author";
 import { Category } from "./Header";
 
@@ -72,7 +74,8 @@ const PostDetail = ({ post }: Props) => {
         );
       case "image":
         return (
-          <img
+          <Image
+            loader={graphCMSImageLoader}
             key={index}
             alt={obj.title}
             height={obj.height}
@@ -97,11 +100,13 @@ const PostDetail = ({ post }: Props) => {
       <div className="px-4 lg:px-0">
         <div className="flex items-center mb-8 w-full">
           <div className="flex items-center mb-4 lg:mb-0 w-full lg:w-auto mr-8">
-            <img
+            <Image
+              loader={graphCMSImageLoader}
               src={post.author.photo.url}
               alt={post.author.name}
               height="30px"
               width="30px"
+              unoptimized
               className="align-middle rounded-full"
             />
             <p className="inline align-middle text-gray-700 ml-2 text-lg">

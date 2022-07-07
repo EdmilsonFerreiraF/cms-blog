@@ -1,4 +1,8 @@
 import moment from "moment";
+import Image from "next/image";
+
+import { graphCMSImageLoader } from "../util";
+
 import Link from "next/link";
 import React from "react";
 import { Post } from "../pages";
@@ -18,9 +22,11 @@ const PostCard = ({ post }: { post: Post }) => {
       </h1>
       <div className="block lg:flex text-center items-center justify-center mb-8 w-full">
         <div className="flex items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto mr-8">
-          <img
+          <Image
+            loader={graphCMSImageLoader}
             src={post.author.photo.url}
             alt={post.author.name}
+            unoptimized
             height="30px"
             width="30px"
             className="align-middle rounded-full"
