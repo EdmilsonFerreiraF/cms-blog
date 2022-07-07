@@ -3,10 +3,9 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Post } from "../pages";
 import { getRecentPosts, getSimilarPosts } from "../services";
-import { Category } from "./Header";
 
 interface Props {
-  categories?: Category[];
+  categories?: string[];
   slug?: string;
 }
 
@@ -15,7 +14,7 @@ const PostWidget = ({ categories, slug }: Props) => {
 
   useEffect(() => {
     if (slug) {
-      getSimilarPosts(categories as Category[], slug).then((result: any) =>
+      getSimilarPosts(categories as string[], slug).then((result: any) =>
         setRelatedPosts(result)
       );
     } else {

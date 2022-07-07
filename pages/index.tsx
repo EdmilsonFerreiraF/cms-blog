@@ -1,3 +1,4 @@
+import { GetStaticProps } from "next";
 import Head from "next/head";
 import { Categories, PostCard, PostWidget } from "../components";
 import { getPosts } from "../services";
@@ -53,12 +54,12 @@ const Home = ({ posts }: { posts: { node: Post }[] }) => {
   );
 };
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const posts = (await getPosts()) || [];
 
   return {
     props: { posts },
   };
-}
+};
 
 export default Home;
