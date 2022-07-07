@@ -3,14 +3,15 @@ import { gql, GraphQLClient } from 'graphql-request'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT as string
+const graphcmsToken = process.env.GRAPHCMS_TOKEN as string
 
 export default async function comments(
   req: NextApiRequest,
   res: NextApiResponse<any>
 ) {
-  const graphQLlient = new GraphQLClient(graphqlAPI, {
+  const graphQLClient = new GraphQLClient(graphqlAPI, {
     headers: {
-      authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`
+      authorization: `Bearer ${graphcmsToken}`
     }
   })
 
@@ -20,7 +21,13 @@ export default async function comments(
     }
   `
 
-  const result = await graphQLlient.request(query, req.body)
+  try {
+    const result = await graphQLClient.request(query, req.body)
 
-  return res.status(200).send(result)
+    return res.status(200).send(result)
+  } catch (error: any) {
+    console.log(error)
+    return res.status(500).send(error)
+
+  }
 }
