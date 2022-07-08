@@ -41,7 +41,7 @@ export const getPosts = async () => {
 
 export const getPostDetails = async (slug: string) => {
   const query = gql`
-    query GetPostetails($slug: String!) {
+    query GetPostDetails($slug: String!) {
       post(where: { slug: $slug }) {
         author {
           name
@@ -162,4 +162,40 @@ export const getComments = async (slug: string) => {
   const result = await request(graphqlAPI, query, { slug });
 
   return result.comments;
+};
+
+export const getCategoryPosts = async (category: string) => {
+  const query = gql`
+    query GetCategoryPosts($category: String!) {
+      postsConnection(where: { categories_some: { slug: $category } }) {
+        edges {
+          node {
+            author {
+              name
+              bio
+              id
+              photo {
+                url
+              }
+            }
+            createdAt
+            slug
+            title
+            excerpt
+            featuredImage {
+              url
+            }
+            categories {
+              name
+              slug
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, { category });
+
+  return result.postsConnection.edges;
 };
