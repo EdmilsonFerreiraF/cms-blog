@@ -199,3 +199,28 @@ export const getCategoryPosts = async (category: string) => {
 
   return result.postsConnection.edges;
 };
+
+export const getFeaturedPosts = async () => {
+  const query = gql`
+    query GetFeaturedPosts {
+      posts(where: { featuredPost: true }) {
+        publishedAt
+        slug
+        author {
+          name
+          photo {
+            url
+          }
+        }
+        title
+        featuredImage {
+          url
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query);
+
+  return result.posts;
+};

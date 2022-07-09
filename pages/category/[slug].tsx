@@ -26,6 +26,7 @@ export interface Post {
   featuredImage: {
     url: string;
   };
+  publishedAt: string;
   slug: string;
   title: string;
 }
