@@ -15,7 +15,7 @@ type Props = {
 
 const Author = ({ author }: Props) => {
   return (
-    <div className="text-center mt-20 mb-8 p-12 relative">
+    <div className="text-center mt-20 mb-8 p-12 relative bg-[#00000038]">
       <div className="absolute left-0 right-0 -top-12">
         <Image
           unoptimized
