@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import { Categories, PostCard, PostWidget } from "../components";
-import FeaturedPost from "../components/FeaturedPost";
+import FeaturedPost, { FeaturedPosts } from "../components/FeaturedPosts";
 import { getPosts } from "../services";
 
 interface Category {
@@ -39,7 +39,7 @@ const Home = ({ posts }: { posts: { node: Post }[] }) => {
         <title>CMS Blog</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <FeaturedPost />
+      <FeaturedPosts />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="lg:col-span-8 col-span-1">
           {posts.map((post) => (
