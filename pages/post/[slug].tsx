@@ -7,6 +7,7 @@ import {
   PostDetail,
   PostWidget,
 } from "../../components";
+import AdjacentPosts from "../../components/AdjacentPosts";
 import Comments from "../../components/Comments";
 import { PostDetailType } from "../../components/PostDetail";
 import { getPostDetails, getPosts } from "../../services";
@@ -22,6 +23,7 @@ const PostDetails = ({ post }: Props) => {
         <div className="col-span-1 lg:col-span-8">
           <PostDetail post={post} />
           <Author author={post.author} />
+          <AdjacentPosts createdAt={post.createdAt} slug={post.slug} />
           <CommentsForm slug={post.slug} />
           <Comments slug={post.slug} />
         </div>
@@ -56,6 +58,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: posts.map(({ node: { slug } }: { node: { slug: string } }) => ({
       params: { slug },
     })),
-    fallback: false,
+    fallback: true,
   };
 };
