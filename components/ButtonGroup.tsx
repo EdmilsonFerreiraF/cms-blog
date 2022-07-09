@@ -1,7 +1,20 @@
-const ButtonGroup = ({ next, previous, goToSlide, ...rest }: any) => {
-  const {
-    carouselState: { currentSlide },
-  } = rest;
+import { ButtonGroupProps, CarouselInternalState } from "react-multi-carousel";
+
+const ButtonGroup = ({ next, previous, ...rest }: ButtonGroupProps) => {
+  const carouselState = rest.carouselState as CarouselInternalState;
+  const currentSlide = carouselState.currentSlide;
+
+  const handlePreviousClick = () => {
+    const scrollPrevious = previous as () => void;
+
+    scrollPrevious();
+  };
+
+  const handleNextClick = () => {
+    const scrollNext = previous as () => void;
+
+    scrollNext();
+  };
 
   return (
     <div className="carousel-button-group">
@@ -11,7 +24,7 @@ const ButtonGroup = ({ next, previous, goToSlide, ...rest }: any) => {
             ? "disable"
             : "text-white arrow-btn bg-pink-600 rounded-full absolute left-0 p-3 top-1/2 translate-y-[-50%] flex justify-center"
         }
-        onClick={() => previous()}
+        onClick={() => handlePreviousClick}
       >
         {currentSlide > 0 && (
           <svg
@@ -32,7 +45,7 @@ const ButtonGroup = ({ next, previous, goToSlide, ...rest }: any) => {
       </button>
       <button
         className="text-white arrow-btn bg-pink-600 rounded-full absolute right-0 p-3 top-1/2 translate-y-[-50%] flex justify-center"
-        onClick={() => next()}
+        onClick={() => handleNextClick}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
