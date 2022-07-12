@@ -1,8 +1,7 @@
-import Image from "next/image";
-import { graphCMSImageLoader } from "../util";
 import Author from "./Author";
 import { Category } from "./Header";
 import PostDate from "./PostDate";
+import PostImage from "./PostImage";
 import PostText from "./PostText";
 
 export type PostDetailType = {
@@ -39,15 +38,7 @@ const PostDetail = ({ post }: Props) => {
       <div className="px-4 lg:px-0">
         <div className="flex items-center mb-8 w-full">
           <div className="flex items-center mb-4 lg:mb-0 w-full lg:w-auto mr-8">
-            <Image
-              loader={graphCMSImageLoader}
-              src={post.author.photo.url}
-              alt={post.author.name}
-              unoptimized
-              height="30px"
-              width="30px"
-              className="align-middle rounded-full"
-            />
+            <PostImage post={post} />
             <p className="inline align-middle text-gray-700 ml-2 text-lg">
               {post.author.name}
             </p>
