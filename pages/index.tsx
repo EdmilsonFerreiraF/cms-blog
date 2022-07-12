@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import { Categories, PostCard, PostWidget } from "../components";
+import { Author, Categories, PostCard, PostWidget } from "../components";
 import FeaturedPost, { FeaturedPosts } from "../components/FeaturedPosts";
 import { getPosts } from "../services";
 
@@ -9,25 +9,14 @@ interface Category {
   slug: string;
 }
 
-interface Author {
-  name: string;
-  bio: string;
-  id: string;
-  photo: {
-    url: string;
-  };
-}
-
 export interface Post {
   author: Author;
   categories: Category[];
-  length: number;
-  createdAt: string;
   excerpt: string;
   featuredImage: {
     url: string;
   };
-  publishedAt: string;
+  createdAt: string;
   slug: string;
   title: string;
 }

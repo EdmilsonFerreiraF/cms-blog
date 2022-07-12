@@ -204,7 +204,7 @@ export const getFeaturedPosts = async () => {
   const query = gql`
     query GetFeaturedPosts {
       posts(where: { featuredPost: true }) {
-        publishedAt
+        createdAt
         slug
         author {
           name

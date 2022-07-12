@@ -21,12 +21,11 @@ export interface Post {
   author: Author;
   categories: Category[];
   length: number;
-  createdAt: string;
   excerpt: string;
   featuredImage: {
     url: string;
   };
-  publishedAt: string;
+  createdAt: string;
   slug: string;
   title: string;
 }
