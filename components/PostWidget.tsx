@@ -6,7 +6,7 @@ import { Post } from "../pages";
 import { getRecentPosts, getSimilarPosts } from "../services";
 import { graphCMSImageLoader } from "../util";
 
-interface Props {
+type Props = {
   categories?: string[];
   slug?: string;
 }

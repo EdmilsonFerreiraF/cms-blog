@@ -7,7 +7,11 @@ import Link from "next/link";
 import React from "react";
 import { Post } from "../pages";
 
-const PostCard = ({ post }: { post: Post }) => {
+type Props = {
+  post: Post
+}
+
+const PostCard = ({ post }: Props) => {
   return (
     <div className="bg-white shadow-log rounded-lg p-0 lg:p-8 pb-12 mb-8">
       <div className="relative overflow-hidden shadow-md pb-80 mb-6">
