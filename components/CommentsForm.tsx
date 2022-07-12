@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { submitComment } from "../services";
 import CommentsFields from "./CommentsFields";
+import CommentsKeep from "./CommentsKeep";
 
 type Props = {
   slug: string;
@@ -80,23 +81,7 @@ const CommentsForm = ({ slug }: Props) => {
         Leave a Reply
       </h3>
       <CommentsFields commentEl={commentEl} nameEl={nameEl} emailEl={emailEl} />
-      <div className="grid grid-cols-1 gap-4 mb-4">
-        <div>
-          <input
-            type="checkbox"
-            ref={storeDataEl}
-            id="storeData"
-            name="storeData"
-            value="true"
-          />
-          <label
-            htmlFor="storeData"
-            className="text-gray-500 cursor-pointer ml-2"
-          >
-            Save my e-mail and name for the next time I comment.
-          </label>
-        </div>
-      </div>
+      <CommentsKeep storeDataEl={storeDataEl} />
       {error && (
         <p className="text-xs text-red-500">All fields are required.</p>
       )}
