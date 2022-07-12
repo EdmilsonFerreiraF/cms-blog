@@ -1,10 +1,10 @@
+import parser from "html-react-parser";
 import moment from "moment";
-import React from "react";
 
 type Comment = {
-  name: string
-  createdAt: string
-  comment: string
+  name: string;
+  createdAt: string;
+  comment: string;
 };
 
 type Props = {
@@ -33,7 +33,3 @@ const CommentList = ({ comments }: Props) => {
 };
 
 export default CommentList;
-
-function parser(comment: any): React.ReactNode {
-  throw new Error("Function not implemented.");
-}
