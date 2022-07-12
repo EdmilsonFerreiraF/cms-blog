@@ -1,21 +1,24 @@
-import React, {
-  DetailedHTMLProps,
-  InputHTMLAttributes,
-  LegacyRef,
-  RefObject,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { useEffect, useRef, useState } from "react";
 import { submitComment } from "../services";
 
 type Props = {
   slug: string;
 };
 
+type HtmlValue = {
+  value: HTMLInputElement["value"];
+};
+
+type AreaValue = {
+  value: HTMLTextAreaElement["value"];
+};
+
+type HtmlChecked = {
+  checked: HTMLInputElement["checked"];
+};
+
 const CommentsForm = ({ slug }: Props) => {
   const [error, setError] = useState(false);
-  const [localStorage, setLocalStorage] = useState(null);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const commentEl = useRef<HTMLTextAreaElement>(null);
@@ -34,13 +37,11 @@ const CommentsForm = ({ slug }: Props) => {
   const handleCommentSubmission = () => {
     setError(false);
 
-    const { value: comment }: { value: HTMLTextAreaElement["value"] } =
+    const { value: comment }: AreaValue =
       commentEl?.current as HTMLTextAreaElement;
-    const { value: name }: { value: HTMLInputElement["value"] } =
-      nameEl?.current as HTMLInputElement;
-    const { value: email }: { value: HTMLInputElement["value"] } =
-      emailEl?.current as HTMLInputElement;
-    const { checked: storeData }: { checked: HTMLInputElement["checked"] } =
+    const { value: name }: HtmlValue = nameEl?.current as HTMLInputElement;
+    const { value: email }: HtmlValue = emailEl?.current as HTMLInputElement;
+    const { checked: storeData }: HtmlChecked =
       storeDataEl?.current as HTMLInputElement;
 
     if (!commentEl || !nameEl || !emailEl) {
