@@ -5,7 +5,7 @@ type Props = {
   postImage: string;
 };
 
-const PostImage = ({ postImage }: Props) => {
+const PostImageContrasted = ({ postImage }: Props) => {
   return (
     <div
       className="w-full h-full rounded-lg"
@@ -18,4 +18,4 @@ const PostImage = ({ postImage }: Props) => {
   );
 };
 
-export default PostImage;
+export default PostImageContrasted;

@@ -1,5 +1,5 @@
 import { Post } from "../pages";
-import PostImage from "./PostImage/PostImage";
+import PostImageContrasted from "./PostImageContrasted/PostImageContrasted";
 import PostTitle from "./PostTitle";
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
 const FeaturedPostCard = ({ post }: Props) => {
   return (
     <>
-      <PostImage postImage={post.featuredImage.url} />
+      <PostImageContrasted postImage={post.featuredImage.url} />
       <PostTitle post={post} />
       <div className="flex text-white text-lg absolute bottom-4 left-1/2 translate-x-[-50%]">
         <img

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Post } from "../pages";
 import LeftArrowBtn from "./LeftArrowBtn";
-import PostImage from "./PostImage/PostImage";
+import PostImageContrasted from "./PostImageContrasted/PostImageContrasted";
 import PostTitle from "./PostTitle";
 import RightArrowBtn from "./RightArrowBtn";
 
@@ -14,7 +14,7 @@ const AdjacentPosts = ({ post, position }: Props) => {
   return (
     <div className="relative carousel-button-group">
       <div className="relative h-72 mb-14">
-        <PostImage postImage={post.featuredImage.url} />
+        <PostImageContrasted postImage={post.featuredImage.url} />
         <PostTitle post={post} />
         <Link href={`/post/${post.slug}`}>
           <div>
