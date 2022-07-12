@@ -1,5 +1,5 @@
 import { Post } from "../pages";
-import PostImageContrasted from "./PostImageContrasted/PostImageContrasted";
+import PostImageContrasted from "./PostImageContrasted";
 import PostTitle from "./PostTitle";
 
 type Props = {

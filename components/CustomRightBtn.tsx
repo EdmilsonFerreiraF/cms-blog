@@ -1,11 +1,8 @@
-import React from "react";
-
 type Props = {
-  currentSlide: number;
   next: (() => void) | undefined;
 };
 
-const CustomRightBtn = ({ currentSlide, next }: Props) => {
+const CustomRightBtn = ({ next }: Props) => {
   const handleNextClick = () => {
     const scrollNext = next as () => void;
 

@@ -1,4 +1,4 @@
-import React, { RefObject } from "react";
+import { RefObject } from "react";
 
 type Props = {
   commentEl: RefObject<HTMLTextAreaElement>;
@@ -7,6 +7,8 @@ type Props = {
 };
 
 const CommentsFields = ({ commentEl, nameEl, emailEl }: Props) => {
+  const fields = ["name", "email"];
+
   return (
     <>
       <div className="grid grid-cols-1 gap-4 mb-4">
@@ -18,20 +20,18 @@ const CommentsFields = ({ commentEl, nameEl, emailEl }: Props) => {
         ></textarea>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
-        <input
-          type="text"
-          ref={nameEl}
-          className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700"
-          placeholder="Name"
-          name="name"
-        />
-        <input
-          type="text"
-          ref={emailEl}
-          className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700"
-          placeholder="Email"
-          name="email"
-        />
+        {fields.map((field) => {
+          return (
+            <input
+              key={field}
+              type={field}
+              ref={field === "name" ? nameEl : emailEl}
+              className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700 capitalize"
+              placeholder={`${field}`}
+              name={`${field}`}
+            />
+          );
+        })}
       </div>
     </>
   );

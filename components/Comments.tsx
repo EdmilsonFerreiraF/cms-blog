@@ -1,6 +1,4 @@
-import moment from "moment";
-import parser from "html-react-parser";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getComments } from "../services";
 import CommentList from "./CommentList";
 

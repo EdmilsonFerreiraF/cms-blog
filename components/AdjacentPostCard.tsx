@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Post } from "../pages";
 import LeftArrowBtn from "./LeftArrowBtn";
-import PostImageContrasted from "./PostImageContrasted/PostImageContrasted";
+import PostImageContrasted from "./PostImageContrasted";
 import PostTitle from "./PostTitle";
 import RightArrowBtn from "./RightArrowBtn";
 

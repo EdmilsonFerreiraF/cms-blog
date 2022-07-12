@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Category } from "../Header";
+import { Category } from "./Header";
 
 type Props = {
   categories: Category[];

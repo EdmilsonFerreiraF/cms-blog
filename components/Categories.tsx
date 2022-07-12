@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCategories } from "../services";
-import CategoryList from "./CategoryList/CategoryList";
+import CategoryList from "./CategoryList";
 import { Category } from "./Header";
 
 const Categories = () => {

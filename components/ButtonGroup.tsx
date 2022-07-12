@@ -9,7 +9,7 @@ const ButtonGroup = ({ next, previous, ...rest }: ButtonGroupProps) => {
   return (
     <div className="carousel-button-group">
       <CustomLeftBtn currentSlide={currentSlide} previous={previous} />
-      <CustomRightBtn currentSlide={currentSlide} next={next} />
+      <CustomRightBtn next={next} />
     </div>
   );
 };

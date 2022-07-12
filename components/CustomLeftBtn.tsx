@@ -1,5 +1,3 @@
-import React from "react";
-
 type Props = {
   currentSlide: number;
   previous: (() => void) | undefined;

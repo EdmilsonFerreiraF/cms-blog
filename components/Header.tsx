@@ -1,5 +1,5 @@
 import Link from "next/link";
-import CategoryList from "./CategoryList/CategoryList";
+import CategoryList from "./CategoryList";
 
 export interface Category {
   name: string;

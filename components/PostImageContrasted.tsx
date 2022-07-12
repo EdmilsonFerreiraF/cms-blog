@@ -1,6 +1,3 @@
-import React from "react";
-import { Post } from "../../pages";
-
 type Props = {
   postImage: string;
 };
