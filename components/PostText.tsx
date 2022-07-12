@@ -15,33 +15,34 @@ const PostText = ({ postText }: Props) => {
     obj: any,
     type?: "heading-three" | "paragraph" | "heading-four" | "image"
   ) => {
+    const mappedModifiedText = modifiedText.map((item: any, i: number) => (
+      <React.Fragment key={i}>{item}</React.Fragment>
+    ));
+
     if (type === "heading-three") {
       return (
         <h3 key={index} className="text-xl font-semibold mb-4">
-          {modifiedText.map((item: any, i: number) => (
-            <React.Fragment key={i}>{item}</React.Fragment>
-          ))}
+          {mappedModifiedText}
         </h3>
       );
     }
+
     if (type === "paragraph") {
       return (
         <p key={index} className="mb-8">
-          {modifiedText.map((item: any, i: number) => (
-            <React.Fragment key={i}>{item}</React.Fragment>
-          ))}
+          {mappedModifiedText}
         </p>
       );
     }
+
     if (type === "heading-four") {
       return (
         <h4 key={index} className="text-md font-semibold mb-4">
-          {modifiedText.map((item: any, i: number) => (
-            <React.Fragment key={i}>{item}</React.Fragment>
-          ))}
+          {mappedModifiedText}
         </h4>
       );
     }
+
     if (type === "image") {
       return (
         <Image
@@ -75,12 +76,10 @@ const PostText = ({ postText }: Props) => {
         modifiedText = <em key={index}>{text}</em>;
       }
 
-      if (obj.underline) {
-        modifiedText = <u key={index}>{text}</u>;
-      }
+      modifiedText = <u key={index}>{text}</u>;
     }
 
-    switchContentType(modifiedText, index, obj, type);
+    return switchContentType(modifiedText, index, obj, type);
   };
 
   return (
