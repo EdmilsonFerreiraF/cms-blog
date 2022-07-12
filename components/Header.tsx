@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React from "react";
+import CategoryList from "./CategoryList/CategoryList";
 
 export interface Category {
   name: string;
@@ -24,13 +24,10 @@ const Header = () => {
         </div>
 
         <div className="hidden md:float-left md:contents">
-          {categories.map((category) => (
-            <Link key={category.slug} href={`/category/${category.slug}`}>
-              <span className="md:float-right mt-2 align-middle text-white ml-4 font-semibold cursor-pointer">
-                {category.name}
-              </span>
-            </Link>
-          ))}
+          <CategoryList
+            categories={categories}
+            className="md:float-right mt-2 align-middle text-white ml-4 font-semibold cursor-pointer"
+          />
         </div>
       </div>
     </div>
