@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { Post } from "../pages";
 import LeftArrowBtn from "./LeftArrowBtn";
+import RightArrowBtn from "./RightArrowBtn";
 
 type Props = {
   post: Post;
@@ -33,27 +34,8 @@ const AdjacentPosts = ({ post, position }: Props) => {
           <div>
             <span className="z-10 cursor-pointer absolute w-full h-full" />
 
-            {position === "LEFT" && (
-              <LeftArrowBtn />
-            )}
-            {position === "RIGHT" && (
-              <div className="absolute arrow-btn bottom-5 text-center py-3 cursor-pointer bg-pink-600 right-4 rounded-full">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-white w-full"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  />
-                </svg>
-              </div>
-            )}
+            {position === "LEFT" && <LeftArrowBtn />}
+            {position === "RIGHT" && <RightArrowBtn />}
           </div>
         </Link>
       </div>
