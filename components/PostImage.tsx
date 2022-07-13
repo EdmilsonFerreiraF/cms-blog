@@ -10,8 +10,8 @@ const PostImage = ({ post }: Props) => {
   return (
     <Image
       loader={graphCMSImageLoader}
-      src={post.author.photo.url}
-      alt={post.author.name}
+      src={post?.author.photo.url}
+      alt={post?.author.name}
       unoptimized
       height="30px"
       width="30px"

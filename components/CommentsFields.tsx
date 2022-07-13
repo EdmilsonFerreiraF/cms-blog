@@ -26,7 +26,7 @@ const CommentsFields = ({ commentEl, nameEl, emailEl }: Props) => {
               key={field}
               type={field}
               ref={field === "name" ? nameEl : emailEl}
-              className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700 capitalize"
+              className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700 placeholder:capitalize"
               placeholder={`${field}`}
               name={`${field}`}
             />

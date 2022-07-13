@@ -30,8 +30,8 @@ const PostDetail = ({ post }: Props) => {
     <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
       <div className="relative overflow-hidden shadow-md mb-6">
         <img
-          src={post.featuredImage.url}
-          alt={post.title}
+          src={post?.featuredImage.url}
+          alt={post?.title}
           className="object-top h-full w-full rounded-t-lg"
         />
       </div>
@@ -40,13 +40,13 @@ const PostDetail = ({ post }: Props) => {
           <div className="flex items-center mb-4 lg:mb-0 w-full lg:w-auto mr-8">
             <PostImage post={post} />
             <p className="inline align-middle text-gray-700 ml-2 text-lg">
-              {post.author.name}
+              {post?.author.name}
             </p>
           </div>
-          <PostDate postDate={post.createdAt} />
+          <PostDate postDate={post?.createdAt} />
         </div>
-        <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
-        <PostText postText={post.content.raw} />
+        <h1 className="mb-8 text-3xl font-semibold">{post?.title}</h1>
+        <PostText postText={post?.content.raw} />
       </div>
     </div>
   );

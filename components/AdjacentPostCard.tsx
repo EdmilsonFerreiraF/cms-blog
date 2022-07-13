@@ -18,8 +18,6 @@ const AdjacentPosts = ({ post, position }: Props) => {
         <PostTitle post={post} />
         <Link href={`/post/${post.slug}`}>
           <div>
-            <span className="z-10 cursor-pointer absolute w-full h-full" />
-
             {position === "LEFT" && <LeftArrowBtn />}
             {position === "RIGHT" && <RightArrowBtn />}
           </div>

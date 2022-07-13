@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { ReactNode } from "react";
+import React from "react";
 import { graphCMSImageLoader } from "../util";
 
 type Props = {
@@ -86,7 +86,7 @@ const PostText = ({ postText }: Props) => {
   return (
     <>
       {postText.children.map((typeObj: any, index: number) => {
-        const children = typeObj.children.map((item: any, itemIndex: any) =>
+        const children = typeObj?.children.map((item: any, itemIndex: any) =>
           getContentFragment(itemIndex, item.text, item)
         );
         return getContentFragment(index, children, typeObj, typeObj.type);
