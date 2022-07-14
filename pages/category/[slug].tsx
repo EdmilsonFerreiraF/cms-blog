@@ -39,8 +39,8 @@ const CategoryPost = ({ posts }: { posts: { node: Post }[] }) => {
       </Head>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="lg:col-span-8 col-span-1">
-          {posts.map((post) => (
-            <PostCard post={post.node} key={post.node.title} />
+          {posts?.map((post) => (
+            <PostCard post={post?.node} key={post?.node.title} />
           ))}
         </div>
         <div className="lg:col-span-4 col-span-1">
@@ -63,7 +63,7 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const categories = await getCategories();
+  const categories = (await getCategories()) || [];
 
   return {
     paths: categories.map(({ slug }: { slug: string }) => ({

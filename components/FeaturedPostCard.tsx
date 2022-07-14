@@ -15,11 +15,13 @@ const FeaturedPostCard = ({ post }: Props) => {
       <div className="flex text-white text-lg absolute bottom-4 left-1/2 translate-x-[-50%]">
         <Image
           unoptimized
+          width="32px"
+          height="32px"
           className="rounded-full w-8 mr-2"
           src={post.author.photo.url}
           alt="User profile"
         />
-        <h4>{post.author.name}</h4>
+        <h4 className="ml-3">{post.author.name}</h4>
       </div>
     </>
   );
