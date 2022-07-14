@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Post } from "../pages";
 import PostImageContrasted from "./PostImageContrasted";
 import PostTitle from "./PostTitle";
@@ -12,7 +13,8 @@ const FeaturedPostCard = ({ post }: Props) => {
       <PostImageContrasted postImage={post.featuredImage.url} />
       <PostTitle post={post} />
       <div className="flex text-white text-lg absolute bottom-4 left-1/2 translate-x-[-50%]">
-        <img
+        <Image
+          unoptimized
           className="rounded-full w-8 mr-2"
           src={post.author.photo.url}
           alt="User profile"

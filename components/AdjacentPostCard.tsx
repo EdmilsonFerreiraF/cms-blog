@@ -17,10 +17,10 @@ const AdjacentPosts = ({ post, position }: Props) => {
         <PostImageContrasted postImage={post.featuredImage.url} />
         <PostTitle post={post} />
         <Link href={`/post/${post.slug}`}>
-          <div>
+          <>
             {position === "LEFT" && <LeftArrowBtn />}
             {position === "RIGHT" && <RightArrowBtn />}
-          </div>
+          </>
         </Link>
       </div>
     </div>

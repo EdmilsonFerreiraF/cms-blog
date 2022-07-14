@@ -18,15 +18,15 @@ const Author = ({ author }: Props) => {
       <div className="absolute left-0 right-0 -top-12">
         <Image
           unoptimized
-          src={author.photo.url}
+          src={author?.photo.url}
           height="100px"
           width="100px"
-          alt={author.name}
+          alt={author?.name}
           className="align-middle rounded-full"
         />
       </div>
-      <div className="text-white my-4 text-xl font-bold">{author.name}</div>
-      <p className="text-white text-lg">{author.bio}</p>
+      <div className="text-white my-4 text-xl font-bold">{author?.name}</div>
+      <p className="text-white text-lg">{author?.bio}</p>
     </div>
   );
 };

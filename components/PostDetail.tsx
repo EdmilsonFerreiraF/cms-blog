@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Author from "./Author";
 import { Category } from "./Header";
 import PostDate from "./PostDate";
@@ -29,7 +30,7 @@ const PostDetail = ({ post }: Props) => {
   return (
     <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
       <div className="relative overflow-hidden shadow-md mb-6">
-        <img
+        <Image
           src={post?.featuredImage.url}
           alt={post?.title}
           className="object-top h-full w-full rounded-t-lg"

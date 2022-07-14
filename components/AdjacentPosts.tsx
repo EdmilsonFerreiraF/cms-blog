@@ -16,7 +16,7 @@ const AdjacentPosts = ({ createdAt, slug }: Props) => {
       console.log(result);
       setAdjacentPosts([result.previous, result.next]);
     });
-  }, [createdAt]);
+  }, [createdAt, slug]);
 
   return (
     <div className="adjacent-post">

@@ -50,7 +50,7 @@ export const FeaturedPosts = () => {
       customButtonGroup={<ButtonGroup />}
     >
       {featuredPosts.map((post: Post) => (
-        <FeaturedPostCard post={post} />
+        <FeaturedPostCard key={post.slug} post={post} />
       ))}
     </Carousel>
   );

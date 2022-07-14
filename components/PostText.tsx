@@ -85,7 +85,7 @@ const PostText = ({ postText }: Props) => {
 
   return (
     <>
-      {postText.children.map((typeObj: any, index: number) => {
+      {postText?.children.map((typeObj: any, index: number) => {
         const children = typeObj?.children.map((item: any, itemIndex: any) =>
           getContentFragment(itemIndex, item.text, item)
         );

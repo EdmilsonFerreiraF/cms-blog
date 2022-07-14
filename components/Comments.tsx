@@ -11,7 +11,7 @@ const Comments = ({ slug }: Props) => {
 
   useEffect(() => {
     getComments(slug).then((result: any) => setComments(result));
-  }, []);
+  }, [slug]);
 
   return (
     <>

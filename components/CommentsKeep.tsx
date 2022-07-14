@@ -7,7 +7,7 @@ type Props = {
 const CommentsKeep = ({ storeDataEl }: Props) => {
   return (
     <div className="grid grid-cols-1 gap-4 mb-4">
-      <div>
+      <>
         <input
           type="checkbox"
           ref={storeDataEl}
@@ -21,7 +21,7 @@ const CommentsKeep = ({ storeDataEl }: Props) => {
         >
           Save my e-mail and name for the next time I comment.
         </label>
-      </div>
+      </>
     </div>
   );
 };
