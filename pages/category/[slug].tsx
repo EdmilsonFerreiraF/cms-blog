@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { Categories, PostCard, PostWidget } from "../../components";
-import { getCategories, getCategoryPosts, getPosts } from "../../services";
+import { getCategories, getCategoryPosts } from "../../services";
 
 interface Category {
   name: string;
@@ -69,7 +69,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: categories.map(({ slug }: { slug: string }) => ({
       params: { slug },
     })),
-    fallback: false,
+    fallback: true,
   };
 };
 
